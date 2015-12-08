@@ -1,0 +1,44 @@
+{
+  "provider": {
+    "google": {
+      "credentials": "${file(\"/home/pat/.secrets/DataGenerator-7405cf73a4e7.json\")}",
+      "account_file": "${file(\"/home/pat/.secrets/DataGenerator-7405cf73a4e7.json\")}",
+      "project": "datagenerator-1082",
+      "region": "europe-west1-b"
+    }
+  },
+  "provider": {
+    "googlecli": {
+      "credentials": "${file(\"/home/pat/.secrets/DataGenerator-7405cf73a4e7.json\")}",
+      "project": "datagenerator-1082",
+      "region": "europe-west1-b"
+    }
+  },
+  "resource": {
+    "googlecli_dataflow": {
+      "hx_full_stack": {
+        "name": "example-dataflow-fstack",
+        "classpath": "/home/pat/code/go/src/github.com/22acacia/terraform-provider-googlecli/test-fixtures/google-cloud-dataflow-java-examples-all-bundled-1.1.1-SNAPSHOT.jar",
+        "class": "com.google.cloud.dataflow.examples.WordCount",
+        "optional_args": {
+          "stagingLocation": "gs://${google_storage_bucket.hx_gstack_bucket.name}",
+          "runner": "DataflowPipelineRunner"
+        }
+      }
+    },
+    "google_storage_bucket": {
+      "hx_fstack_bucket": {
+        "name": "hx_fstack",
+        "force_destroy": true,
+        "location": "EU"
+      }
+    },
+    "google_storage_bucket": {
+      "hx_gstack_bucket": {
+        "name": "hx_gstack",
+        "force_destroy": true,
+        "location": "EU"
+      }
+    }
+  }
+}
