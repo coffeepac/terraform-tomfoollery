@@ -1,0 +1,13 @@
+deployment:
+  pre:
+    - wget https://releases.hashicorp.com/terraform/0.6.8/terraform_0.6.8_linux_amd64.zip ~/
+    - sudo unzip terraform_0.6.8_linux_amd64.zip -d /usr/local/bin/
+    - sudo wget https://s3-us-west-1.amazonaws.com/22acacia-deploy/custom-binaries/terraform-provider-googlecli  /usr/local/bin/
+
+  shitsnacks:
+    branch: master
+    commands:
+      - terraform remote config -backend=s3 -backend-config="access_key=AKIAIO7EFPBVLETOC4IA" -backend-config="secret_key=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" -backend-config="region=us-west-1" -backend-config="bucket=22acacia-deploy" -backend-config="key=terraform-state/temp2"
+      - terraform plan
+      - terraform apply
+      - terraform remote push
