@@ -5,7 +5,6 @@ machine:
     - sudo curl https://s3-us-west-1.amazonaws.com/22acacia-deploy/custom-binaries/terraform-provider-googlecli -o /usr/local/bin/terraform-provider-googlecli
     - sudo chmod +x /usr/local/bin/terraform-provider-googlecli
     - curl https://sdk.cloud.google.com | sudo CLOUDSDK_CORE_DISABLE_PROMPTS=1 bash
-    - exec -l $SHELL
     - sudo gcloud components update kubectl
     - sudo gcloud alpha 
 
