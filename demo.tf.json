@@ -1,6 +1,7 @@
 {
   "provider": {
     "google": {
+      "account_file": "{\"stanwick\": \"dick\"}",
       "project": "datagenerator-1082",
       "region": "europe-west1-b"
     }
