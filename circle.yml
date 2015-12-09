@@ -1,9 +1,10 @@
-deployment:
+machine:
   pre:
     - wget https://releases.hashicorp.com/terraform/0.6.8/terraform_0.6.8_linux_amd64.zip ~/
     - sudo unzip terraform_0.6.8_linux_amd64.zip -d /usr/local/bin/
     - sudo wget https://s3-us-west-1.amazonaws.com/22acacia-deploy/custom-binaries/terraform-provider-googlecli  /usr/local/bin/
 
+deployment:
   shitsnacks:
     branch: master
     commands:
