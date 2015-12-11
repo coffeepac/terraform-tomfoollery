@@ -5,8 +5,8 @@ machine:
     - sudo curl https://s3-us-west-1.amazonaws.com/22acacia-deploy/custom-binaries/terraform-provider-googlecli -o /usr/local/bin/terraform-provider-googlecli
     - sudo chmod +x /usr/local/bin/terraform-provider-googlecli
     - curl https://sdk.cloud.google.com | sudo CLOUDSDK_CORE_DISABLE_PROMPTS=1 bash
-    - sudo /opt/google-cloud-sdk/bin/gcloud components install kubectl
-    - sudo /opt/google-cloud-sdk/bin/gcloud alpha 
+    - sudo /opt/google-cloud-sdk/bin/gcloud components install kubectl -q
+    - sudo /opt/google-cloud-sdk/bin/gcloud alpha -q
 
 deployment:
   shitsnacks:
