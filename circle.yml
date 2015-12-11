@@ -12,8 +12,8 @@ deployment:
   shitsnacks:
     branch: master
     commands:
-      - cd $CIRCLE_PROJECT_REPONAME; terraform remote config -backend=s3 -backend-config="access_key=$AWS_ACCESS_KEY" -backend-config="secret_key=$AWS_SECRET_KEY" -backend-config="region=us-west-1" -backend-config="bucket=22acacia-deploy" -backend-config="key=terraform-state/temp2"
-      - cd $CIRCLE_PROJECT_REPONAME; echo $GOOGLE_CREDENTIALS > account.json
-      - cd $CIRCLE_PROJECT_REPONAME; terraform plan
-      - cd $CIRCLE_PROJECT_REPONAME; terraform apply
-      - cd $CIRCLE_PROJECT_REPONAME; terraform remote push
+      - cd $HOME/$CIRCLE_PROJECT_REPONAME; terraform remote config -backend=s3 -backend-config="access_key=$AWS_ACCESS_KEY" -backend-config="secret_key=$AWS_SECRET_KEY" -backend-config="region=us-west-1" -backend-config="bucket=22acacia-deploy" -backend-config="key=terraform-state/temp2"
+      - cd $HOME/$CIRCLE_PROJECT_REPONAME; echo $GOOGLE_CREDENTIALS > account.json
+      - cd $HOME/$CIRCLE_PROJECT_REPONAME; terraform plan
+      - cd $HOME/$CIRCLE_PROJECT_REPONAME; terraform apply
+      - cd $HOME/$CIRCLE_PROJECT_REPONAME; terraform remote push
