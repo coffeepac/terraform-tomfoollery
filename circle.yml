@@ -12,7 +12,7 @@ deployment:
   shitsnacks:
     branch: master
     commands:
-      - terraform remote config -backend=s3 -backend-config="access_key=AKIAIO7EFPBVLETOC4IA" -backend-config="secret_key=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" -backend-config="region=us-west-1" -backend-config="bucket=22acacia-deploy" -backend-config="key=terraform-state/temp2"
+      - terraform remote config -backend=s3 -backend-config="access_key=${AWS_ACCESS_KEY}" -backend-config="secret_key=${AWS_SECRET_KEY}" -backend-config="region=us-west-1" -backend-config="bucket=22acacia-deploy" -backend-config="key=terraform-state/temp2"
       - terraform plan
       - terraform apply
       - terraform remote push
