@@ -12,7 +12,8 @@ deployment:
   shitsnacks:
     branch: master
     commands:
-      - terraform remote config -backend=s3 -backend-config="access_key=${AWS_ACCESS_KEY}" -backend-config="secret_key=${AWS_SECRET_KEY}" -backend-config="region=us-west-1" -backend-config="bucket=22acacia-deploy" -backend-config="key=terraform-state/temp2"
-      - terraform plan
-      - terraform apply
-      - terraform remote push
+      - cd terraform-tomfoolery; terraform remote config -backend=s3 -backend-config="access_key=$AWS_ACCESS_KEY" -backend-config="secret_key=$AWS_SECRET_KEY" -backend-config="region=us-west-1" -backend-config="bucket=22acacia-deploy" -backend-config="key=terraform-state/temp2"
+      - echo $GOOGLE_CREDENTIALS > terraform-tomfoolery; account.json
+      - cd terraform-tomfoolery; terraform plan
+      - cd terraform-tomfoolery; terraform apply
+      - cd terraform-tomfoolery; terraform remote push

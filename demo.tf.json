@@ -1,7 +1,7 @@
 {
   "provider": {
     "google": {
-      "account_file": "{\"stanwick\": \"dick\"}",
+      "credentials": "${file("account.json")}",
       "project": "datagenerator-1082",
       "region": "europe-west1-b"
     }
